@@ -1,0 +1,14 @@
+name: 'NZ COVID Data Updater'
+description: 'Process daily NZ COVID-19 case numbers'
+inputs:
+  source_path:
+    description: 'Source path'
+    required: true
+    default: 'cases/covid-cases.csv'
+  dest_path:
+    description: 'Destination path (luxon format string)'
+    required: true
+    default: "'gh-pages/data'/yyyy/MM/yyyy-MM-dd.'json'"
+runs:
+  using: 'node16'
+  main: 'index.js'
