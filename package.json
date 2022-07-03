@@ -1,6 +1,6 @@
 {
   "name": "nz-covid-data-updater",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GitHub Action to process daily NZ COVID-19 case numbers",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,6 @@
   "homepage": "https://github.com/pauln/nz-covid-data-updater#readme",
   "dependencies": {
     "@actions/core": "^1.9.0",
-    "@actions/github": "^5.0.3",
     "luxon": "^2.4.0"
   }
 }
