@@ -37,9 +37,10 @@ const main = async () => {
             date = fields[0];
         }
         if (fields[0] !== date) {
-            // We're done - we've moved on to the next date.
-            done = true;
-            rl.close();
+            // This day is done - we've moved on to the next date.
+            writeData(stats, destPath, date);
+            date = fields[0];
+            stats = {};
         }
 
         // Process row.
@@ -49,12 +50,12 @@ const main = async () => {
         }
         if (fields[5] === 'Yes') {
             // Overseas travel.
-            incStat(stats, 'Overseas travel');
+            incStat(stats, 'Overseas travel', fields[7]);
             return;
         }
 
         // Increment region/DHB's count.
-        incStat(stats, fields[4]);
+        incStat(stats, fields[4], fields[7]);
     });
 
     rl.on('close', () => {
@@ -64,11 +65,12 @@ const main = async () => {
     });
   }
 
-  function incStat(stats, key) {
+  function incStat(stats, key, num) {
+    num = parseInt(num, 10);
     if (stats.hasOwnProperty(key)) {
-        stats[key]++;
+        stats[key] += num;
     } else {
-        stats[key] = 1;
+        stats[key] = num;
     }
   }
 

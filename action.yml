@@ -4,7 +4,7 @@ inputs:
   source_path:
     description: 'Source path'
     required: true
-    default: 'cases/covid-cases.csv'
+    default: 'cases/covid-case-counts.csv'
   dest_path:
     description: 'Destination path (luxon format string)'
     required: true
